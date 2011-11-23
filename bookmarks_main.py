@@ -16,6 +16,8 @@ class ListBookmark(webapp.RequestHandler):
         data = {'bookmarks':bookmarks}
         path = os.path.join(os.path.dirname(__file__),"bookmark_list.html")
         self.response.out.write(template.render(path,data))
+    def post(self):
+        self.redirect("/")
 
 class AddBookmark(webapp.RequestHandler):
     def get(self):
@@ -56,8 +58,13 @@ class EditBookmark(webapp.RequestHandler):
         self.redirect("/")
 
 class DeleteBookmark(webapp.RequestHandler):
-    def get(self):
-        print 'hoge'
+    def post(self,bookmark_id):
+        bookmark = Bookmark.get_by_id(int(bookmark_id))
+
+        if bookmark:
+            logging.info(bookmark.title)
+            bookmark.delete()
+        self.redirect("/")
 
 def main():
     application = webapp.WSGIApplication([
