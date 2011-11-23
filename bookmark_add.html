@@ -1,0 +1,18 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+<title>GAE de Bookmark</title>
+</head>
+<body>
+	<form name="form_new" action="/add/" method="post">
+		<dl>
+			<dt>URL</dt>
+			<dd>{{error}}</dd>
+			<dd>タイトル：<input type="text" name="title" size="50" value="{{title}}" /></dd>
+			<dd>URL:<input type="text" name="url" size="50" value="{{url}}" /></dd>
+			<dd>コメント：<textarea name="comment">{{comment}}</textarea></dd>
+		</dl>
+		<input type="submit" value="新規登録"/>
+	</form>
+</body>
+</html>

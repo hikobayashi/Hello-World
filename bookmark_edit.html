@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+<title>GAE de Bookmark</title>
+</head>
+<body>
+	<form name="form_edit" action="/edit/{{bookmark_id}}/" method="post">
+		<dl>
+			<dt>URL</dt>
+			<dd>タイトル：<input type="text" name="title" size="50" value="{{bookmark.title}}" /></dd>
+			<dd>URL:<input type="text" name="url" size="50" value="{{bookmark.url}}" /></dd>
+			<dd>コメント：<textarea name="comment">{{bookmark.comment}}</textarea></dd>
+		</dl>
+		<input type="submit" value="更新"/>
+	</form>
+
+	<form name="form_delete" action="/delete/{{bookmark.id}}" method="post">
+		<input type="submit" value="削除"/>
+	</form>
+	
+</body>
+</html>
